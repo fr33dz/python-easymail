@@ -45,14 +45,3 @@ class EasyMail(object):
             except Exception:
                 return False
 
-def get_sended():
-    try:
-        mail_sended=''
-        rea = open('./log.txt', 'rb')
-        for line in rea:
-            mail_sended += line
-        rea.close()
-        return mail_sended
-    except:
-        print 'no hay log'
-
