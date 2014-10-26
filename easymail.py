@@ -8,7 +8,7 @@ class EasyMail(object):
             pass
 
         @classmethod
-        def loggin(cls, user, password):
+        def login(cls, user, password):
             instantiate = cls()
             instantiate.set_server(user, password)
             return instantiate
@@ -56,35 +56,3 @@ def get_sended():
     except:
         print 'no hay log'
 
-
-mail_inst = EasyMail.loggin('ikerocio@gmail.com', '8fOtIhE4+@Gm')
-
-logout = open('./log.txt', 'a')
-namesfile = open('./nombres.txt', 'rb')
-
-mail_sended = get_sended()
-aux = 0
-url = 'http://bodalaurayaitor.com/?invitation='
-tipo = ''
-emails = []
-names = []
-types = []
-urls = []
-for line in namesfile:
-    if aux%3 == 0:
-        url+= line.replace(',','+').replace(" ", "")
-        urls.append(url)
-        names.append(line)
-    elif aux%3 == 1:
-        tipo = line
-        types.append(tipo)
-    elif aux%3 == 2:
-        if line.replace('\n', '') not in mail_sended:
-            logout.write("%s"%line)
-            mail_inst.send(line, 'BODA', 'entra aqui: '+url)
-        url = 'http://bodalaurayaitor.com/?invitation='
-        tipo = ''
-        email = ''
-    aux+=1
-namesfile.close()
-logout.close()
