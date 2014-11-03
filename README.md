@@ -22,12 +22,19 @@ m = EasyMail.login('yourname@yourdomain.es', 'yourpassword')
 
 to = 'xxx@xxxxx.com'    #user that you want send an email
 subject = 'yoursubject'
-body = 'body text'
+body = 'body text'      #you can send HTML text
+filepath = '/home/user/Desktop/holidays.png'    #if you want to add an attachment.
 
-m.send(to, subject, body)
+m.send(to, subject, body, [filepath])
+
 ```
 
 ## Changelog
+## 0.2
+**3rd Nov 2014**
+
+* Add file attachment support
+
 ## 0.1
 
 **26th Oct 2014**
