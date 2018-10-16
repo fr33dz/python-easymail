@@ -13,17 +13,18 @@ Clone the project from github
 
 ## How to use it?
 
-Login:
 
 ```python
-from easymail import EasyMail
+def main():
+    m = EasyMail('yacine.bs1@gmail.com', 'yourpassword', 'smtp.gmail.com')
 
-m = EasyMail.login('smtp.gmail.com', 'yourname@yourdomain.es', 'yourpassword')
+    to = 'yacine.bs2@gmail.com'    #user that you want send an email
+    subject = 'test smtp'
+    body = '<h2> Hello world :p </h2>'      #you can send HTML text
 
-to = 'xxx@xxxxx.com'    #user that you want send an email
-subject = 'yoursubject'
-body = 'body text'      #you can send HTML text
+    m.send(to, subject, body)
 
-m.send(to, subject, body)
+if __name__ == "__main__":
+    main()
 
 ```
